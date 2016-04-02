@@ -1,0 +1,31 @@
+body {
+  background: #333;
+}
+h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 400;
+  margin-top: 10px;
+  color: #333;
+  background-color: #ffffff;
+  padding-top: 8px;
+  font-size: 48px;
+}
+img {
+  height: 48px;
+  color: #333;
+}
+.jscolor {
+  opacity: .9;
+  border: 3px solid #ffffff;
+  border-radius: 5px;
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+  height: 50px;
+}
+.jscolor:hover {
+  opacity: 1;
+}
+@media screen and (max-width: 900px) {
+
+}
