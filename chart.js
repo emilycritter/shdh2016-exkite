@@ -2,11 +2,11 @@ google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
 function drawChart() {
-  var jsonData = $.ajax({
-    url: "getData.php",
-    dataType: "json",
-    async: false
-    }).responseText;
+  // var jsonData = $.ajax({
+  //   url: "getData.php",
+  //   dataType: "json",
+  //   async: false
+  //   }).responseText;
 
   var data = google.visualization.arrayToDataTable([
     ['Year', 'Altitude', 'Temperature'],
@@ -23,7 +23,11 @@ function drawChart() {
     colors: ['#808080','#333333', '#0d0d0d']
   };
 
-  var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+  function resize () {
+      var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+      chart.draw(data, options);
+    }
 
-  chart.draw(data, options);
+    window.onload = resize();
+    window.onresize = resize;
 }
