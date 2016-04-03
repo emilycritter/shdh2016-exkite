@@ -1,0 +1,43 @@
+/* CSS declarations go here */
+
+.jumbotron
+{
+	background-image: url('http://www.skywardkites.com/s/cc_images/teaserbox_4213686284.JPG?t=1439928330');
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+
+	height: 350px;
+}
+.list-inline
+{
+	font-size: 24px;
+	border-bottom: solid;
+}
+
+.list-inline .col-md-6
+{
+	font-family: 'Orbitron', sans-serif;
+	text-align: center;
+}
+
+.nav .col-md-3
+{
+	padding-top: 30px;
+}
+
+
+span
+{
+	color: red;
+}
+
+.menu 
+{
+	height: 100px;
+	width: auto;
+}
+
+.nav-li:hover
+{
+	color: orange;
+}
