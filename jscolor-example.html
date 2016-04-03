@@ -8,12 +8,13 @@
 	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 	<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="chart.js"></script>
 	<script src="logic.js"></script>
 	<script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
 	<script src="map.js"></script>
-
+	<link href="bootstrap-switch.css" rel="stylesheet">
+	<script src="bootstrap-switch.js"></script>
 
 </head>
 <body style="text-align:center;">
@@ -23,30 +24,52 @@
 	<script src="jscolor.js"></script>
 
 	<div class="color-picker"><input class="jscolor" value="ab2567"></div>
+
 	<div class="row">
-		<div class="col-md-6">
+		<div class="col-md-6" id="google-line-chart">
 			<div class="thumbnail">
 				<div id="curve_chart" style="max-width: 100%; height: 250px"></div>
 			</div>
 		</div>
-		<div class="col-md-6">
+		<div class="col-md-6" id="controls-section">
 			<div class="thumbnail">
+				<h1>controls</h1>
+				<div class="">
+					<p>
+						pattern
+					</p>
+					<div class="btn-group">
+						<button type="button" data-switch-toggle="state" class="btn btn-default">constant</button>
+						<button type="button" data-switch-set="state" data-switch-value="true" class="btn btn-default">strobe</button>
+						<button type="button" data-switch-set="state" data-switch-value="false" class="btn btn-default">trail</button>
+						<button type="button" data-switch-get="state" class="btn btn-default">random</button>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<p>GPS track</p>
+						<input id="TheCheckBox" type="checkbox" data-off-text="on" data-on-text="off" checked="on" class="BSswitch">
+					</div>
+					<div class="col-md-6">
+						<p>
+							color
+						</p>
+						<input id="TheCheckBox" type="checkbox" data-off-text="gyro" data-on-text="user" checked="gyro" class="BSswitch">
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="thumbnail data">
-		<button type="button" name="button"></button>
 	</div>
 	<div class="thumbnail map">
 		<div class="google-map" style='overflow:hidden;height:440px;width:100%;'>
 			<div id='gmap_canvas' style='height:440px;width:100%;'></div>
-			<div><small><a href="http://embedgooglemaps.com">	embed google maps							</a></small></div>
+			<div><small><a href="http://embedgooglemaps.com">	embed google maps</a></small></div>
 			<div><small><a href="http://www.autohuren.world/">auto huren</a></small></div>
 			<style>#gmap_canvas img{max-width:none!important;background:none!important}</style>
 		</div>
 	</div>
 
-
+	<script src="sizing.js"></script>
 
 </body>
 </html>

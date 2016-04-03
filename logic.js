@@ -1,8 +1,8 @@
-function setTextColor(picker) {
-  document.getElementsByTagName('body')[0].style.color = '#' + picker.toString()
-}
+// function setTextColor(picker) {
+//   document.getElementsByTagName('body')[0].style.color = '#' + picker.toString()
+// }
 
-$(".jscolor").delegateEvent('change', function() {
+$(document.body).delegate(".jscolor", 'change', function() {
   var color = $( this ).css( "background-color" );
   var xkUpdate = $('strong');
   xkUpdate.css("color", color);

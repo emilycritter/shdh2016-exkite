@@ -1,6 +1,10 @@
 body {
   background: #333;
 }
+p {
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+}
 h1 {
   font-family: 'Orbitron', sans-serif;
   font-weight: 400;
@@ -9,6 +13,12 @@ h1 {
   background-color: #ffffff;
   padding-top: 8px;
   font-size: 48px;
+}
+.btn {
+  font-family: 'Orbitron', sans-serif;
+}
+.bootstrap-switch {
+  font-family: 'Orbitron', sans-serif;
 }
 img {
   height: 48px;

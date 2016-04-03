@@ -1,26 +1,61 @@
+var colorDark = '#808080';
+var colorLight = '#333333';
+
+
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
-function drawChart() {
-  // var jsonData = $.ajax({
-  //   url: "getData.php",
-  //   dataType: "json",
-  //   async: false
-  //   }).responseText;
+setInterval(function(){
+  var jsonData = $.ajax({
+    url: "getGeneralData",
+    dataType: "json",
+    success: function(data){
+      drawChart(data);
+    }
+    }).responseText;
+});
 
-  var data = google.visualization.arrayToDataTable([
-    ['Year', 'Altitude', 'Temperature'],
-    ['2004',  1000,      400],
-    ['2005',  1170,      460],
-    ['2006',  660,       1120],
-    ['2007',  1030,      540]
-  ]);
+function drawChart(info) {
+  var obj = [];
+  obj.push(['time', 'altitude', 'temperature']);
+  for(var i = 0; i < info.length; i++) {
+    obj.push([info.altitude.time, info.altitude.val, info.temperature.val]);
+  }
+
+  var data = google.visualization.arrayToDataTable(obj);
 
   var options = {
     title: 'exkite live',
     curveType: 'function',
     legend: { position: 'bottom' },
-    colors: ['#808080','#333333', '#0d0d0d']
+    colors: [colorDark, colorLight],
+    titleTextStyle: {
+      color: '#333333',
+      fontName: 'Orbitron',
+      fontSize: 18
+    },
+    hAxis: {
+      textStyle: {
+        color: '#333333',
+        fontName: 'Orbitron',
+        fontSize: 12
+      }
+    },
+    vAxis: {
+      textStyle: {
+        color: '#333333',
+        fontName: 'Orbitron',
+        fontSize: 12
+      }
+    },
+    legend: {
+      textStyle: {
+        color: '#333333',
+        fontName: 'Orbitron',
+        fontSize: 12
+      },
+      position: 'bottom'
+    }
   };
 
   function resize () {
@@ -31,3 +66,10 @@ function drawChart() {
     window.onload = resize();
     window.onresize = resize;
 }
+
+$(document.body).delegate("h1 strong", 'change', function() {
+  var color = $( this ).css( 'background-color' );
+  colorLight = color;
+  colorDark = color;
+  drawChart();
+});
